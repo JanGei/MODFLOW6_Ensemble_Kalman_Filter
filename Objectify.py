@@ -158,6 +158,9 @@ class Ensemble:
         vmin = np.min([self.meanh[self.meanh > -0.1].min(), head_true[head_true > -0.1].min()])
         vmax = np.max([self.meanh[self.meanh < 1e+30].max(), head_true[head_true < 1e+30].max()])
         
+        print(vmin)
+        print(vmax)
+        
         k_field                         = self.meank
         k_field                         = np.log10(k_field)
         k_field_true                    = np.log10(k_field_true)

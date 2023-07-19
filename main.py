@@ -61,8 +61,9 @@ if __name__ == '__main__':
     if os.path.isdir(absolute_path + ens_path) == True :
         shutil.rmtree(absolute_path + ens_path)
     
-    ncores          = multiprocessing.cpu_count() - 3 
-    nreal           = 5
+    ncores          = multiprocessing.cpu_count()
+    print(ncores)
+    nreal           = 500
     
     ens_dir         = [None] * nreal
     ens_hds_dir     = [None] * nreal
@@ -240,7 +241,7 @@ if __name__ == '__main__':
     mask_chd[:,-1]  = True
     mask_chd_3d     = np.broadcast_to(mask_chd, true_heads.shape)
     
-    for i in range(1):
+    for i in range(t_tot):
         # Counter for stressperiod and timestep
         Ensemble.update_tstp()
         print("Starting Time Step {}".format(Ensemble.tstp))    
