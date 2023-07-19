@@ -156,7 +156,7 @@ class Ensemble:
         h_diff = head_true-self.meanh
         h_diff[self.meanh == 1e+30] = 1e+30
         vmin = np.min([self.meanh[self.meanh > -0.1].min(), head_true[head_true > -0.1].min()])
-        vmax = np.max([self.meanh[self.meanh < 1e+30].max(), head_true[head_true < 1e+30].max()])
+        vmax = np.max([self.meanh[self.meanh < 500].max(), head_true[head_true < 500].max()])
         
         print("Min Head is" + str(vmin))
         print("Max Head is" + str(vmax))
