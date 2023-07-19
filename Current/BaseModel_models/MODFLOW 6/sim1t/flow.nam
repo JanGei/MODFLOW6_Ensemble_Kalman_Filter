@@ -1,0 +1,19 @@
+BEGIN OPTIONS
+  LIST flow_output/model.lst
+  PRINT_INPUT
+  PRINT_FLOWS
+  SAVE_FLOWS
+END OPTIONS
+
+BEGIN PACKAGES
+  DIS6 flow.dis 'DIS'
+  NPF6 flow.npf 'NPF'
+  IC6 flow.ic 'IC'
+  CHD6 flow.chd 'CHD'
+  EVT6 flow.evt 'EVT'
+  OC6 flow.oc 'OC'
+  RCH6 flow.rch 'RCH'
+  RIV6 flow.riv 'RIV'
+  WEL6 flow.wel 'WEL'
+  STO6 flow.sto 'STO'
+END PACKAGES

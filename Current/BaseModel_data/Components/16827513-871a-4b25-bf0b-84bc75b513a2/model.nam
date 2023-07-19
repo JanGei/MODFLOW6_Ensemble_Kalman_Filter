@@ -1,0 +1,18 @@
+BEGIN OPTIONS
+  LIST model.lst
+  PRINT_INPUT
+  PRINT_FLOWS
+  SAVE_FLOWS
+END OPTIONS
+
+BEGIN PACKAGES
+  DIS6 ../0f086cb7-f6d4-42cd-a349-c024a5835099/model.dis 'DIS'
+  NPF6 ../fdd8f793-f44e-4513-9412-9e039d5c4ea2/model.npf 'NPF'
+  IC6 ../9ea819fe-f2a4-4e21-ba90-5610549c137f/model.ic 'IC'
+  CHD6 ../1d230b9c-cb60-469b-a5f0-0ca76d91e8d3/model.chd 'CHD'
+  EVT6 ../b23a49af-7b94-4b9c-af4a-334769204128/model.evt 'EVT'
+  OC6 ../7404f6ed-8150-4a75-8705-0e239adf81c1/model.oc 'OC'
+  RCH6 ../bd85022f-7c31-4927-adea-2d1722579be4/model.rch 'RCH'
+  RIV6 ../8c15e20e-72c4-43ce-ab9c-dbbc8c69fdd1/model.riv 'RIV'
+  WEL6 ../ba451883-0548-4d6f-bd24-6f2482a1cb8d/model.wel 'WEL'
+END PACKAGES
