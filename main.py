@@ -62,7 +62,6 @@ if __name__ == '__main__':
         shutil.rmtree(absolute_path + ens_path)
     
     ncores          = multiprocessing.cpu_count()
-    print(ncores)
     nreal           = 500
     
     ens_dir         = [None] * nreal
