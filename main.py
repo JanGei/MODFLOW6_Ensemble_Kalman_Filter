@@ -62,7 +62,7 @@ if __name__ == '__main__':
         shutil.rmtree(absolute_path + ens_path)
     
     ncores          = multiprocessing.cpu_count()
-    nreal           = 500
+    nreal           = 10
     
     ens_dir         = [None] * nreal
     ens_hds_dir     = [None] * nreal
@@ -309,7 +309,7 @@ if __name__ == '__main__':
             
         for k in range(Ensemble.nobs):
             Obs_data[i,k]       = true_heads[i,obsloc[k][0],obsloc[k][1]]
-            Ens_h_obs_mat[i,k]  = Ensemble.meanh[i,obsloc[k][0],obsloc[k][1]]
+            Ens_h_obs_mat[i,k]  = Ensemble.meanh[0,obsloc[k][0],obsloc[k][1]]
         
         Ens_K_mean_mat[i,:,:]   = Ensemble.meank
         Ens_h_mean_mat[i,:,:]   = Ensemble.meanh

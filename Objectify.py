@@ -153,25 +153,26 @@ class Ensemble:
         qx = np.sum(qx_l, axis=0)
         qy = np.sum(qy_l, axis=0)
         
-        h_diff = head_true-self.meanh
-        h_diff[self.meanh == 1e+30] = 1e+30
-        vmin = np.min([self.meanh[self.meanh > -0.1].min(), head_true[head_true > -0.1].min()])
-        vmax = np.max([self.meanh[self.meanh < 500].max(), head_true[head_true < 500].max()])
+        mask      = self.meanh > 1e+29
         
-        print("Min Head is" + str(vmin))
-        print("Max Head is" + str(vmax))
+        h_diff          = head_true-self.meanh
+        h_diff[mask]    = 1e+30
+        vmin            = np.min([self.meanh[self.meanh > -0.1].min(),
+                                  head_true[head_true > -0.1].min()])
+        vmax            = np.max([self.meanh[self.meanh < 500].max(), 
+                                  head_true[head_true < 500].max()])
         
         k_field                         = self.meank
-        k_field                         = np.log10(k_field)
-        k_field_true                    = np.log10(k_field_true)
+        k_field                         = np.log10(k_field/86400)
+        k_field_true                    = np.log10(k_field_true/86400)
         k_diff                          = (k_field_true-k_field)/k_field_true
-        k_field[self.meanh== 1e+30]     = 1e+30
-        k_field_true[self.meanh== 1e+30]= 1e+30
-        k_diff[self.meanh== 1e+30]      = 1e+30           
+        k_field[mask]                   = 1e+30
+        k_field_true[mask]              = 1e+30
+        k_diff[mask]                    = 1e+30           
         vmink                           = np.min([k_field.min(), k_field_true.min()])
-        vmaxk                           = np.max([k_field[k_field < 86400].max(), k_field_true[k_field_true < 86400].max()])
+        vmaxk                           = np.max([k_field[k_field < 1].max(), k_field_true[k_field_true < 1].max()])
         
-        fig1, axes1 = plt.subplots(3, 1, figsize=(25, 25), sharex=True)
+        fig1, axes1 = plt.subplots(3, 1, figsize=(25, 25), sharex=True, dpi = 400)
         ax11, ax12, ax13 = axes1
 
         ax11.set_title("Ensemble-mean, true, and difference K-field in period " + str(int(self.tstp)), fontsize = 30)
@@ -219,7 +220,7 @@ class Ensemble:
         
         plt.savefig("K_field in t" + str(self.tstp), format="svg")
         
-        fig2, axes2 = plt.subplots(3, 1, figsize=(25, 25), sharex=True)
+        fig2, axes2 = plt.subplots(3, 1, figsize=(25, 25), sharex=True, dpi = 400)
         ax21, ax22, ax23 = axes2
 
         ax21.set_title("Ensemble-mean, true, and difference h-field in period " + str(int(self.tstp)), fontsize = 30)
